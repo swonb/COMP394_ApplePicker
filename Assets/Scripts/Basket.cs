@@ -38,22 +38,15 @@ public class Basket : MonoBehaviour
         }
 
         int score = int.Parse(scoreTxt.text.Substring(6));
-        score += 1;
+        score += 10;
         Debug.Log(score);
         scoreTxt.text = "Score: " + score.ToString();
+
+        // New Oct.09
+        // Track the highscore
+        if (score > HighScore.score)
+        {
+            HighScore.score = score;
+        }
     }
-
-    //private void OnTriggerEnter(Collision collision)
-    //{
-    //    GameObject go = collision.gameObject;
-    //    if (go.tag == "Apple")
-    //    {
-    //        Destroy(go);
-    //        // TODO: scoring
-    //    }
-
-    //    int score = int.Parse(scoreTxt.text.Substring(6));
-    //    score += 1;
-    //    scoreTxt.text = "Score: " + score.ToString();
-    //}
 }
